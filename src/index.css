@@ -1,0 +1,323 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+main {
+  margin: auto;
+  width: 86vw;
+  max-width: 1249px;
+  height: 100vh;
+}
+
+/*///////////////// Top bar /////////////////*/
+.top-bar {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 49px;
+  overflow: hidden;
+}
+
+.search-bar {
+  margin-left: auto;
+  height: 55px;
+  width: 297px;
+  border: none;
+}
+
+form {
+  border: 1px solid rgba(121, 121, 121, 0.267);
+  border-radius: 1rem;
+  width: 297px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
+}
+.location {
+  height: 100%;
+  width: 138px;
+  border: 2px solid black;
+  color: rgba(121, 121, 121, 0.473);
+  border: none;
+}
+
+.guest-count {
+  height: 100%;
+  width: 106px;
+  text-transform: capitalize;
+  border: none;
+  border-left: 1px solid rgba(121, 121, 121, 0.185);
+  border-right: 1px solid rgba(121, 121, 121, 0.185);
+  color: rgba(121, 121, 121, 0.473);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+::placeholder {
+  color: rgba(121, 121, 121, 0.473);
+}
+.submit-btn {
+  height: 100%;
+  background: transparent;
+  color: #e85757;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.location:hover,
+.location:focus,
+.guest-count:hover,
+.guest-count:focus {
+  border: none;
+  outline: none;
+  color: black;
+}
+
+.results-info {
+  margin-top: 61px;
+  display: flex;
+  align-items: center;
+}
+.stays-in-the-country-subtitle {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.stays-count {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+
+  margin-left: auto;
+}
+/*/ //////////////// cards /////////////////*/
+.cards {
+  margin-top: 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  height: auto;
+}
+
+.no-results-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 17px;
+  height: 344px;
+}
+.stay-pic {
+  width: 395px;
+  height: 269px;
+  overflow: hidden;
+  border-radius: 24px;
+  margin-bottom: 20px;
+}
+
+.stay-pic img {
+  height: 100%;
+  width: 100%;
+}
+
+.stay-info {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  margin-bottom: 12px;
+}
+
+.super-host-border {
+  width: 100px;
+  height: 28px;
+  border: 1px solid #4f4f4f;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  justify-content: center;
+}
+
+.super-host-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #4f4f4f;
+}
+
+.stay-type {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #828282;
+}
+
+.rating {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+.star {
+  color: #e85757;
+}
+
+.title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0em;
+}
+
+/* //////////////Extended Search Bar related Styles///////////////// */
+
+.extended-top-bar {
+  height: 367px;
+}
+.extended-search-drawer {
+  height: 312px;
+  display: hidden;
+  margin-top: 42px;
+}
+.search-bar-focused {
+  max-width: 1249px;
+  width: 86vw;
+  height: auto;
+  transition: 1000ms;
+}
+
+.search-bar-focused form {
+  display: flex;
+  width: 100%;
+}
+
+.display-extended-drawer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: 300ms;
+  max-width: 1249px;
+  width: 86vw;
+  transition: 500ms;
+}
+
+.location-btns-container {
+  margin-top: 42px;
+  height: 180px;
+  width: 28.9vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 36px;
+  transition: 500ms;
+}
+
+.location-btns-container button {
+  display: flex;
+  margin-left: 1.5rem;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  border: none;
+  width: max-content;
+  background: transparent;
+}
+.guest-count-selector-container {
+  margin-left: 1.5rem;
+  width: 28.9vw;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.adult-count-container {
+  display: flex;
+  flex-direction: colummn;
+  height: 71px;
+  margin-bottom: 62.33px;
+}
+
+.children-count-container {
+  margin-top: 52px;
+}
+
+.adult-count-info,
+.children-count-info {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  display: flex;
+  flex-direction: column;
+  height: 36px;
+}
+
+.adult-count-info p,
+.children-count-info p {
+  font-weight: 400;
+  margin-top: 0.15em;
+  color: rgba(121, 121, 121, 0.637);
+}
+
+.adult-count-btn-and-count-container,
+.child-count-btn-and-count-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 86px;
+  margin-top: 12px;
+}
+
+.count-adjust-btn {
+  width: 23px !important;
+  height: 23px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #828282;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.count-adjust-btn svg {
+  width: 12px;
+  height: 12px;
+  fill: #828282;
+  pointer-events: none;
+}
+
+.search-bar-focused input,
+.search-bar-focused button {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
