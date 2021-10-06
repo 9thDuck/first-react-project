@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Search, Room, Remove, Add } from "@material-ui/icons";
+import { Search, Room, Remove, Add, Close } from "@material-ui/icons";
 import { useStays } from "../context";
 
 const Searchbar = () => {
@@ -9,11 +9,22 @@ const Searchbar = () => {
     searchBarFocusHandler,
     isSearchBarFocused,
     stays,
+    filteredStays,
+    showAll,
   } = useStays();
   const [city, setLocation] = useState("");
   const [maxGuestCount, setMaxGuestCount] = useState(0);
   const [adultGuestCount, setAdultGuestCount] = useState(0);
   const [childGuestCount, setChildGuestCount] = useState(0);
+
+  const locations = [
+    ...new Set(
+      stays.map((stay) => {
+        const { city, country } = stay;
+        return `${city}, ${country}`;
+      })
+    ),
+  ];
 
   const cityAndGuestCountSetter = (e) => {
     e.preventDefault();
@@ -44,24 +55,23 @@ const Searchbar = () => {
           required
         />
         <button className="submit-btn" type="submit">
-          <Search /> {`${isSearchBarFocused ? "Search" : ""}`}
+          <Search /> {`${isSearchBarFocused ? "search" : ""}`}
         </button>
       </form>
+
       <div
         className={`extended-search-drawer ${
           isSearchBarFocused ? "display-extended-drawer" : ""
         }`}
       >
+        {filteredStays.length < 14 && (
+          <button className="remove-selection" onClick={() => showAll()}>
+            <Close />
+          </button>
+        )}
         <div className="location-btns-container">
           {searchBarFocus.location &&
-            [
-              ...new Set(
-                stays.map((stay) => {
-                  const { city, country } = stay;
-                  return `${city}, ${country}`;
-                })
-              ),
-            ].map((location, index) => {
+            locations.map((location, index) => {
               return (
                 <button
                   className="location-btn"

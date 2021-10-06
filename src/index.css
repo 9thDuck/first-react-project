@@ -12,7 +12,7 @@ main {
 /*///////////////// Top bar /////////////////*/
 .top-bar {
   width: 100%;
-  height: auto;
+  min-height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,7 +62,8 @@ input::-webkit-inner-spin-button {
 ::placeholder {
   color: rgba(121, 121, 121, 0.473);
 }
-.submit-btn {
+.submit-btn,
+.remove-selection {
   height: 100%;
   background: transparent;
   color: #e85757;
@@ -196,7 +197,7 @@ input::-webkit-inner-spin-button {
   height: 367px;
 }
 .extended-search-drawer {
-  height: 312px;
+  height: 250px;
   display: hidden;
   margin-top: 42px;
 }
