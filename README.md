@@ -4,5 +4,4 @@ It's a airbnb lookalike.
 
 Issues to be fixed:
 
-1. top-left and bottom-left corners of the search bar are cut off.
-2. sometimes the state value of the guest count lags behind by 1 when incremented using buttons.
+1. styling issues related to the search bar

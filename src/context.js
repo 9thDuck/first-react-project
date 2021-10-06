@@ -6,7 +6,7 @@ export const AppContext = React.createContext();
 export const UseStaysProvider = ({ children }) => {
   const [searchData, setSearchData] = useState({
     city: "",
-    maxGuestCount: 1,
+    maxGuestCount: 0,
   });
   const [searchBarFocus, setSearchBarFocus] = useState({
     location: false,
@@ -27,7 +27,7 @@ export const UseStaysProvider = ({ children }) => {
       return stay;
     }
   });
-
+  const showAll = () => setSearchData({ city: "", maxGuestCount: 0 });
   const handleSubmit = (input) => {
     setSearchData(input);
     setSearchBarFocus({ location: false, maxGuestCount: false });
@@ -50,6 +50,7 @@ export const UseStaysProvider = ({ children }) => {
         searchBarFocusHandler,
         isSearchBarFocused,
         stays,
+        showAll,
       }}
     >
       {children}

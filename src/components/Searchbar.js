@@ -128,7 +128,7 @@ const Searchbar = () => {
                     className="child-count-plus-btn count-adjust-btn"
                     onClick={() => {
                       setChildGuestCount(childGuestCount + 1);
-                      setMaxGuestCount(adultGuestCount + childGuestCount);
+                      setMaxGuestCount(maxGuestCount + 1);
                     }}
                   >
                     <Add className="symbol" />

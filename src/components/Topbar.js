@@ -3,12 +3,15 @@ import Searchbar from "./Searchbar";
 import { useStays } from "../context";
 
 const Topbar = () => {
-  const { isSearchBarFocused } = useStays();
+  const { isSearchBarFocused, showAll } = useStays();
   return (
     <section
       className={`top-bar ${isSearchBarFocused ? "extended-top-bar" : ""}`}
     >
-      <div className={`logo ${isSearchBarFocused ? "hidden" : ""}`}>
+      <div
+        className={`logo ${isSearchBarFocused ? "hidden" : ""}`}
+        onClick={() => showAll()}
+      >
         <svg
           width="96"
           height="19"
