@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { Close } from "@material-ui/icons";
 import { useStays } from "./context";
 import { Card } from "./components/Card";
 import Topbar from "./components/Topbar";
 import { stays } from "./stays";
 const App = () => {
-  const { filteredStays } = useStays();
+  const { filteredStays, showAll } = useStays();
   const [chosenCountry, setChosenCountry] = useState("Finland");
 
   return (
@@ -15,9 +16,15 @@ const App = () => {
           className="stays-in-country-subtitle"
           key="1"
         >{`Stays in ${chosenCountry}`}</h2>
+
         <h2 className="stays-count" key="2">
           {`${filteredStays.length} stays found`}
         </h2>
+        {filteredStays.length < 14 && (
+          <button className="remove-selection" onClick={() => showAll()}>
+            <Close />
+          </button>
+        )}
       </div>
       <section className="cards">
         {filteredStays.length ? (

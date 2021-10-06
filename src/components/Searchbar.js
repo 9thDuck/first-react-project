@@ -10,7 +10,6 @@ const Searchbar = () => {
     isSearchBarFocused,
     stays,
     filteredStays,
-    showAll,
   } = useStays();
   const [city, setLocation] = useState("");
   const [maxGuestCount, setMaxGuestCount] = useState(0);
@@ -64,11 +63,6 @@ const Searchbar = () => {
           isSearchBarFocused ? "display-extended-drawer" : ""
         }`}
       >
-        {filteredStays.length < 14 && (
-          <button className="remove-selection" onClick={() => showAll()}>
-            <Close />
-          </button>
-        )}
         <div className="location-btns-container">
           {searchBarFocus.location &&
             locations.map((location, index) => {
