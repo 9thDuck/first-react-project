@@ -36,8 +36,8 @@ const Searchbar = () => {
   const setCloseSearchBtnCoordinates = (e) => {
     const formPostion = formRef.current.getBoundingClientRect();
     console.log(closeSearchBtnRef);
-    closeSearchBtnRef.current.style.top = `${formPostion.top + 16}px`;
-    closeSearchBtnRef.current.style.left = `${formPostion.right + 16}px`;
+    // closeSearchBtnRef.current.style.top = `${formPostion.top + 16}px`;
+    // closeSearchBtnRef.current.style.left = `${formPostion.right + 16}px`;
   };
 
   return (
@@ -70,17 +70,16 @@ const Searchbar = () => {
         <button className="submit-btn" type="submit">
           <Search /> {`${isSearchBarFocused ? "Search" : ""}`}
         </button>
+        <div
+          className={`close-search-btn ${!isSearchBarFocused ? "hidden" : ""}`}
+          onClick={() =>
+            setSearchBarFocus({ location: false, maxGuestCount: false })
+          }
+          ref={closeSearchBtnRef}
+        >
+          <Close />
+        </div>
       </form>
-
-      <div
-        className={`close-search-btn ${!isSearchBarFocused ? "hidden" : ""}`}
-        onClick={() =>
-          setSearchBarFocus({ location: false, maxGuestCount: false })
-        }
-        ref={closeSearchBtnRef}
-      >
-        <Close />
-      </div>
 
       <div
         className={`extended-search-drawer ${

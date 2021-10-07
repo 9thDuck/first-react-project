@@ -369,7 +369,6 @@ main {
   align-items: center;
   justify-content: center;
   margin-top: 49px;
-  overflow: hidden;
   transition: 500ms;
 }
 
@@ -382,6 +381,7 @@ main {
 }
 
 form {
+  position: relative;
   border: 1px solid rgba(121, 121, 121, 0.267);
   border-radius: 1rem;
   width: 100%;
@@ -427,9 +427,6 @@ input::-webkit-inner-spin-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
-}
-.submit-btn svg {
   margin: auto;
 }
 
@@ -705,6 +702,8 @@ input::-webkit-inner-spin-button {
 
 .close-search-btn {
   position: absolute;
+  top: 30%;
+  left: 102%;
   height: auto;
   width: auto;
   background: transparent;
@@ -724,10 +723,13 @@ input::-webkit-inner-spin-button {
     flex-direction: column;
   }
   .logo {
-    width: 20vw;
     position: absolute;
     top: 1rem;
     left: 1rem;
+    display: flex;
+  }
+  form {
+    font-size: 0.8rem;
   }
   ::placeholder {
     color: rgba(121, 121, 121, 0.473);
