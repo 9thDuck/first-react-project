@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Search, Room, Remove, Add, Close } from "@material-ui/icons";
 import { useStays } from "../context";
 
@@ -8,6 +8,7 @@ const Searchbar = () => {
     searchBarFocus,
     searchBarFocusHandler,
     isSearchBarFocused,
+    setSearchBarFocus,
     stays,
     filteredStays,
   } = useStays();
@@ -15,6 +16,8 @@ const Searchbar = () => {
   const [maxGuestCount, setMaxGuestCount] = useState(0);
   const [adultGuestCount, setAdultGuestCount] = useState(0);
   const [childGuestCount, setChildGuestCount] = useState(0);
+  const formRef = useRef(null);
+  const closeSearchBtnRef = useRef(null);
 
   const locations = [
     ...new Set(
@@ -30,11 +33,22 @@ const Searchbar = () => {
     handleSubmit({ city, maxGuestCount });
   };
 
+  const setCloseSearchBtnCoordinates = (e) => {
+    const formPostion = formRef.current.getBoundingClientRect();
+    console.log(closeSearchBtnRef);
+    closeSearchBtnRef.current.style.top = `${formPostion.top + 16}px`;
+    closeSearchBtnRef.current.style.left = `${formPostion.right + 16}px`;
+  };
+
   return (
     <article
       className={`search-bar ${isSearchBarFocused ? "search-bar-focused" : ""}`}
     >
-      <form onSubmit={cityAndGuestCountSetter}>
+      <form
+        onSubmit={cityAndGuestCountSetter}
+        onClick={setCloseSearchBtnCoordinates}
+        ref={formRef}
+      >
         <input
           type="text"
           className="location"
@@ -50,13 +64,23 @@ const Searchbar = () => {
           onChange={(e) => setMaxGuestCount(e.currentTarget.value)}
           placeholder="Add Guests"
           onClick={() => searchBarFocusHandler("maxGuestCount")}
-          value={maxGuestCount}
+          value={maxGuestCount === 0 ? "Add Guests" : maxGuestCount}
           required
         />
         <button className="submit-btn" type="submit">
-          <Search /> {`${isSearchBarFocused ? "search" : ""}`}
+          <Search /> {`${isSearchBarFocused ? "Search" : ""}`}
         </button>
       </form>
+
+      <div
+        className={`close-search-btn ${!isSearchBarFocused ? "hidden" : ""}`}
+        onClick={() =>
+          setSearchBarFocus({ location: false, maxGuestCount: false })
+        }
+        ref={closeSearchBtnRef}
+      >
+        <Close />
+      </div>
 
       <div
         className={`extended-search-drawer ${
@@ -100,6 +124,7 @@ const Searchbar = () => {
                   <Remove className="symbol" />
                 </button>
                 <span>{adultGuestCount}</span>
+
                 <button
                   className="adult-count-plus-btn count-adjust-btn"
                   onClick={() => {
@@ -128,6 +153,7 @@ const Searchbar = () => {
                     <Remove className="symbol" />
                   </button>
                   <span>{childGuestCount}</span>
+
                   <button
                     className="child-count-plus-btn count-adjust-btn"
                     onClick={() => {

@@ -51,6 +51,7 @@ export const UseStaysProvider = ({ children }) => {
         isSearchBarFocused,
         stays,
         showAll,
+        setSearchBarFocus,
       }}
     >
       {children}

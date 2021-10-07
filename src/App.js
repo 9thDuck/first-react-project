@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <main className="main">
-      <Topbar className="top-bar" />
+      <Topbar />
       <div className="results-info">
         <h2
           className="stays-in-country-subtitle"
