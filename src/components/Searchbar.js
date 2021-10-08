@@ -16,8 +16,6 @@ const Searchbar = () => {
   const [maxGuestCount, setMaxGuestCount] = useState(0);
   const [adultGuestCount, setAdultGuestCount] = useState(0);
   const [childGuestCount, setChildGuestCount] = useState(0);
-  const formRef = useRef(null);
-  const closeSearchBtnRef = useRef(null);
 
   const locations = [
     ...new Set(
@@ -33,22 +31,11 @@ const Searchbar = () => {
     handleSubmit({ city, maxGuestCount });
   };
 
-  const setCloseSearchBtnCoordinates = (e) => {
-    const formPostion = formRef.current.getBoundingClientRect();
-    console.log(closeSearchBtnRef);
-    // closeSearchBtnRef.current.style.top = `${formPostion.top + 16}px`;
-    // closeSearchBtnRef.current.style.left = `${formPostion.right + 16}px`;
-  };
-
   return (
     <article
       className={`search-bar ${isSearchBarFocused ? "search-bar-focused" : ""}`}
     >
-      <form
-        onSubmit={cityAndGuestCountSetter}
-        onClick={setCloseSearchBtnCoordinates}
-        ref={formRef}
-      >
+      <form onSubmit={cityAndGuestCountSetter}>
         <input
           type="text"
           className="location"
@@ -75,7 +62,6 @@ const Searchbar = () => {
           onClick={() =>
             setSearchBarFocus({ location: false, maxGuestCount: false })
           }
-          ref={closeSearchBtnRef}
         >
           <Close />
         </div>
@@ -108,7 +94,7 @@ const Searchbar = () => {
             <div className="adults-count-container">
               <div className="adult-count-info">
                 <h4>Adults</h4>
-                <p>Ages 13 or above</p>
+                <p>Ages 13+</p>
               </div>
               <div className="adult-count-btn-and-count-container">
                 <button
