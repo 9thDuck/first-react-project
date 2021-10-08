@@ -1,6 +1,6 @@
 Made from this challenge https://devchallenges.io/challenges/3JFYedSOZqAxYuOCNmYD using React. ContextAPI was also used.
 
-It's like a airbnb lookalike.
+It's like airbnb.
 
 Issues to be fixed:
 
